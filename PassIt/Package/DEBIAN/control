@@ -1,17 +1,17 @@
 Package: com.arichardson.PassIt
 Name: PassIt
-Version: 0.1-1
-Description: 
+Version: 1.0
+Description: Open links in 1Password with a tap-and-hold.
 Section: Tweaks
-Depends: firmware (>= 5.0), mobilesubstrate
+Depends: firmware (>= 6.0), mobilesubstrate
 Conflicts: 
 Replaces: 
 Priority: optional
 Architecture: iphoneos-arm
-Author: Andrew Richardson
-dev: 
+Author: Andrew Richardson <contact@andrewr.me>
+dev: Andrew Richardson <contact@andrewr.me>
 Homepage: 
 Depiction: 
 Maintainer: 
-Icon: 
+Icon: file:///Library/PreferenceLoader/Preferences/PassItIcon.png
 
