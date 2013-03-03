@@ -11,13 +11,24 @@
 #endif
 #define CHAppName "PassIt"
 
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <notify.h>
+#import "CaptainHook/CaptainHook.h"
+
+static NSBundle *PIBundle() {
+	static NSBundle *PIBundle;
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		PIBundle = [NSBundle bundleWithPath:@"/Library/Application Support/PassIt.bundle"];
+	});
+	return PIBundle;
+}
+
 static NSString *PassItBundleID = @"com.arichardson.PassIt";
 static const char *PassItSettingChangedNotification = "com.arichardson.PassIt.settingsChanged";
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-#import "CaptainHook/CaptainHook.h"
-#import <notify.h>
+#define STR_OPEN_IN_1P NSLocalizedStringWithDefaultValue(@"Open in 1Password", nil, PIBundle(), @"Open in 1Password", @"Title for action to open in 1Password")
 
 @class DOMNode;
 
@@ -66,7 +77,8 @@ CHOptimizedMethod2(self, void, UIWebDocumentView, _createSheetWithElementActions
 				[[UIApplication sharedApplication] openURL:onePassURL];
 		};
 		
-		UIWebElementAction *passAction = [[[UIWebElementAction alloc] initWithTitle:@"Open in 1Password"
+		
+		UIWebElementAction *passAction = [[[UIWebElementAction alloc] initWithTitle:STR_OPEN_IN_1P
 																	 actionHandler:handler
 																			  type:UIWebElementActionTypeLink] autorelease];
 		
