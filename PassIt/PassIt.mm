@@ -3,88 +3,129 @@
 //  PassIt
 //
 //  Created by Andrew Richardson on 2013-03-03.
-//  Copyright (c) 2013 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2013 Andrew Richardson. All rights reserved.
 //
 
-// CaptainHook by Ryan Petrich
-// see https://github.com/rpetrich/CaptainHook/
+#ifdef DEBUG
+#define CHDebug
+#endif
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "CaptainHook/CaptainHook.h"
-#include <notify.h> // not required; for examples only
 
-// Objective-C runtime hooking using CaptainHook:
-//   1. declare class using CHDeclareClass()
-//   2. load class using CHLoadClass() or CHLoadLateClass() in CHConstructor
-//   3. hook method using CHOptimizedMethod()
-//   4. register hook using CHHook() in CHConstructor
-//   5. (optionally) call old method using CHSuper()
+@interface PIInteractionDelegateProxy : NSObject
+@property (nonatomic, assign) id interactionDelegate;
+@end
 
+@implementation PIInteractionDelegateProxy
 
-@interface PassIt : NSObject
+- (BOOL)respondsToSelector:(SEL)aSelector
+{
+	return ([super respondsToSelector:aSelector] || [self.interactionDelegate respondsToSelector:aSelector]);
+}
+
+- (id)forwardingTargetForSelector:(SEL)aSelector
+{
+	return (_interactionDelegate ?: [super forwardingTargetForSelector:aSelector]);
+}
+
+- (NSArray *)webView:(id)webView actionsForLinkElement:(id)element withTargetURL:(NSURL *)targetURL suggestedActions:(id)suggestedActions
+{
+	// TODO: add 1Password action
+	NSArray *actions = [_interactionDelegate webView:webView actionsForLinkElement:element withTargetURL:targetURL suggestedActions:suggestedActions];
+	CHDebugLog(@"actions: %@", actions);
+	return actions;
+}
 
 @end
 
-@implementation PassIt
+@class DOMNode;
 
--(id)init
+@interface UIWebTiledView : UIView
+@end
+
+@interface UIWebDocumentView : UIWebTiledView
+@property (nonatomic, assign) id interactionDelegate;
+- (id)initWithWebView:(id)webView frame:(CGRect)frame; // designated initializer (iOS 6), but not used in some subclasses (ie. Safari)
+@end
+
+@interface UIWebElementActionInfo : NSObject
+@property(readonly, assign, nonatomic) CGPoint interactionLocation;
+@end
+
+typedef void(^UIWebElementActionHandler)(DOMNode *node, NSURL *url, UIWebDocumentView *webDocumentView, UIWebElementActionInfo *actionInfo);
+
+typedef enum {
+	UIWebElementActionTypeLink = 1
+	// ???
+} UIWebElementActionType;
+
+@interface UIWebElementAction : NSObject
+- (id)initWithTitle:(NSString *)title actionHandler:(UIWebElementActionHandler)handler type:(UIWebElementActionType)type;
+@end
+
+CHDeclareClass(UIWebDocumentView)
+CHDeclareProperty(UIWebDocumentView, interactionDelegateProxy)
+
+static inline PIInteractionDelegateProxy *PIInitializeDelegateProxy(UIWebDocumentView *self)
 {
-	if ((self = [super init]))
-	{
+	CHDebugLog(@"%s", __FUNCTION__);
+	PIInteractionDelegateProxy *proxy = [[PIInteractionDelegateProxy new] autorelease];
+	CHPropertySetValue(UIWebDocumentView, interactionDelegateProxy, proxy, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+	self.interactionDelegate = proxy;
+	return proxy;
+}
+
+CHOptimizedMethod0(self, void, UIWebDocumentView, _showLinkSheet)
+{
+	CHDebugLog(@"[%@ %s] interactionDelegate: %@", self, sel_getName(_cmd), [self interactionDelegate]);
+	CHSuper0(UIWebDocumentView, _showLinkSheet);
+}
+
+CHOptimizedMethod2(self, id, UIWebDocumentView, initWithWebView, id, webView, frame, CGRect, frame)
+{
+	if ((self = CHSuper2(UIWebDocumentView, initWithWebView, webView, frame, frame))) {
+		PIInitializeDelegateProxy(self);
 	}
-
-    return self;
+	return self;
 }
 
-@end
-
-
-@class ClassToHook;
-
-CHDeclareClass(ClassToHook); // declare class
-
-CHOptimizedMethod(0, self, void, ClassToHook, messageName) // hook method (with no arguments and no return value)
+CHOptimizedMethod1(self, void, UIWebDocumentView, setInteractionDelegate, id, delegate)
 {
-	// write code here ...
-	
-	CHSuper(0, ClassToHook, messageName); // call old (original) method
+	if (![delegate isKindOfClass:[PIInteractionDelegateProxy class]]) {
+		CHDebugLog(@"setting interactionDelegate to %@", delegate);
+		id currentDelegate = self.interactionDelegate;
+		if (!currentDelegate || ![currentDelegate isKindOfClass:[PIInteractionDelegateProxy class]])
+			currentDelegate = PIInitializeDelegateProxy(self);
+		[(PIInteractionDelegateProxy *)currentDelegate setInteractionDelegate:delegate];
+	}
+	else
+		CHSuper1(UIWebDocumentView, setInteractionDelegate, delegate);
 }
 
-CHOptimizedMethod(2, self, BOOL, ClassToHook, arg1, NSString*, value1, arg2, BOOL, value2) // hook method (with 2 arguments and a return value)
+CHOptimizedMethod2(self, void, UIWebDocumentView, _createSheetWithElementActions, NSArray *, actions, showLinkTitle, BOOL, showTitle)
 {
-	// write code here ...
-
-	return CHSuper(2, ClassToHook, arg1, value1, arg2, value2); // call old (original) method and return its return value
+	CHDebugLog(@"%s with actions %@", sel_getName(_cmd), actions);
+	
+	UIWebElementActionHandler handler = ^(DOMNode *node, NSURL *url, UIWebDocumentView *webDocumentView, UIWebElementActionInfo *actionInfo) {
+		CHDebugLog(@"called actionHandler; url: %@", url);
+	};
+	
+	UIWebElementAction *passAction = [[UIWebElementAction alloc] initWithTitle:@"Open in 1Password" actionHandler:handler type:UIWebElementActionTypeLink];
+	
+	actions = [actions arrayByAddingObject:passAction];
+	
+	CHSuper2(UIWebDocumentView, _createSheetWithElementActions, actions, showLinkTitle, showTitle);
 }
 
-static void WillEnterForeground(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+CHConstructor
 {
-	// not required; for example only
-}
-
-static void ExternallyPostedNotification(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
-{
-	// not required; for example only
-}
-
-CHConstructor // code block that runs immediately upon load
-{
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	
-	// listen for local notification (not required; for example only)
-	CFNotificationCenterRef center = CFNotificationCenterGetLocalCenter();
-	CFNotificationCenterAddObserver(center, NULL, WillEnterForeground, CFSTR("UIApplicationWillEnterForegroundNotification"), NULL, CFNotificationSuspensionBehaviorCoalesce);
-	
-	// listen for system-side notification (not required; for example only)
-	// this would be posted using: notify_post("com.arichardson.PassIt.eventname");
-	CFNotificationCenterRef darwin = CFNotificationCenterGetDarwinNotifyCenter();
-	CFNotificationCenterAddObserver(darwin, NULL, ExternallyPostedNotification, CFSTR("com.arichardson.PassIt.eventname"), NULL, CFNotificationSuspensionBehaviorCoalesce);
-	
-	// CHLoadClass(ClassToHook); // load class (that is "available now")
-	// CHLoadLateClass(ClassToHook);  // load class (that will be "available later")
-	
-	CHHook(0, ClassToHook, messageName); // register hook
-	CHHook(2, ClassToHook, arg1, arg2); // register hook
-	
-	[pool drain];
+	@autoreleasepool {
+		CHLoadLateClass(UIWebDocumentView);
+		CHHook0(UIWebDocumentView, _showLinkSheet);
+		CHHook2(UIWebDocumentView, initWithWebView, frame);
+		CHHook1(UIWebDocumentView, setInteractionDelegate);
+		CHHook2(UIWebDocumentView, _createSheetWithElementActions, showLinkTitle);
+	}
 }

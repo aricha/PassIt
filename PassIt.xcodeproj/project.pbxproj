@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		0DC08DD116E3E1510051AE7C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC08DD016E3E1510051AE7C /* Foundation.framework */; };
 		0DC08DE116E3E1510051AE7C /* PassIt.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0DC08DE016E3E1510051AE7C /* PassIt.mm */; };
+		0DC08DEB16E3F0010051AE7C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC08DEA16E3F0010051AE7C /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0DC08DCD16E3E1510051AE7C /* PassIt.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = PassIt.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DC08DD016E3E1510051AE7C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		0DC08DD516E3E1510051AE7C /* control.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = control.txt; path = Package/DEBIAN/control.txt; sourceTree = "<group>"; };
 		0DC08DD616E3E1510051AE7C /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
 		0DC08DD816E3E1510051AE7C /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
 		0DC08DDC16E3E1510051AE7C /* PassIt.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = PassIt.plist; path = Package/Library/PreferenceLoader/Preferences/PassIt.plist; sourceTree = "<group>"; };
@@ -23,6 +23,7 @@
 		0DC08DDF16E3E1510051AE7C /* PassIt-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PassIt-Prefix.pch"; sourceTree = "<group>"; };
 		0DC08DE016E3E1510051AE7C /* PassIt.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PassIt.mm; sourceTree = "<group>"; };
 		0DC08DE416E3E1510051AE7C /* PassIt.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = PassIt.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/PassIt.plist; sourceTree = "<group>"; };
+		0DC08DEA16E3F0010051AE7C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DC08DEB16E3F0010051AE7C /* UIKit.framework in Frameworks */,
 				0DC08DD116E3E1510051AE7C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,6 +59,7 @@
 		0DC08DCF16E3E1510051AE7C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0DC08DEA16E3F0010051AE7C /* UIKit.framework */,
 				0DC08DD016E3E1510051AE7C /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -84,7 +87,6 @@
 		0DC08DD416E3E1510051AE7C /* DEBIAN */ = {
 			isa = PBXGroup;
 			children = (
-				0DC08DD516E3E1510051AE7C /* control.txt */,
 				0DC08DD616E3E1510051AE7C /* control */,
 			);
 			name = DEBIAN;
@@ -292,10 +294,10 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = "";
-				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnAnyBuild = YES;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
-				iOSOpenDevUsePackageVersionPList = YES;
+				iOSOpenDevUsePackageVersionPList = NO;
 			};
 			name = Debug;
 		};
@@ -311,10 +313,10 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = "";
-				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnAnyBuild = YES;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
-				iOSOpenDevUsePackageVersionPList = YES;
+				iOSOpenDevUsePackageVersionPList = NO;
 			};
 			name = Release;
 		};
