@@ -6,59 +6,12 @@
 //  Copyright (c) 2013 Andrew Richardson. All rights reserved.
 //
 
-#ifdef DEBUG
-	#define CHDebug
-#endif
-#define CHAppName "PassIt"
-
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 #import <notify.h>
-#import "CaptainHook/CaptainHook.h"
-
-static NSBundle *PIBundle() {
-	static NSBundle *PIBundle;
-	static dispatch_once_t onceToken;
-	dispatch_once(&onceToken, ^{
-		PIBundle = [NSBundle bundleWithPath:@"/Library/Application Support/PassIt.bundle"];
-	});
-	return PIBundle;
-}
-
-static NSString *PassItBundleID = @"com.arichardson.PassIt";
-static const char *PassItSettingChangedNotification = "com.arichardson.PassIt.settingsChanged";
-
-#define STR_OPEN_IN_1P NSLocalizedStringWithDefaultValue(@"Open in 1Password", nil, PIBundle(), @"Open in 1Password", @"Title for action to open in 1Password")
-
-@class DOMNode;
-
-@interface UIWebTiledView : UIView
-@end
-
-@interface UIWebDocumentView : UIWebTiledView
-- (DOMNode *)interactionElement;
-@end
-
-@interface UIWebElementActionInfo : NSObject
-@property(readonly, assign, nonatomic) CGPoint interactionLocation;
-@end
-
-typedef void(^UIWebElementActionHandler)(DOMNode *node, NSURL *url, UIWebDocumentView *webDocumentView, UIWebElementActionInfo *actionInfo);
-
-typedef NS_ENUM(NSInteger, UIWebElementActionType) {
-	UIWebElementActionTypeCustom,
-	UIWebElementActionTypeLink,
-	UIWebElementActionTypeCopy,
-	UIWebElementActionTypeSaveImage
-};
-
-@interface UIWebElementAction : NSObject
-@property(readonly, assign, nonatomic) UIWebElementActionType type;
-- (id)initWithTitle:(NSString *)title actionHandler:(UIWebElementActionHandler)handler type:(UIWebElementActionType)type;
-@end
+#import "PIOpenInPasswordActivity.h"
 
 static BOOL PassItEnabled = YES;
 
+CHDeclareClass(UIActivityViewController)
 CHDeclareClass(UIWebDocumentView)
 CHDeclareClass(DOMHTMLAnchorElement)
 
@@ -67,16 +20,14 @@ CHOptimizedMethod2(self, void, UIWebDocumentView, _createSheetWithElementActions
 	DOMNode *node = [self interactionElement];
 	BOOL isAnchor = node && [(id)node isKindOfClass:CHClass(DOMHTMLAnchorElement)];
 	
-	if (isAnchor && PassItEnabled) {
+	if (isAnchor && PassItEnabled && PIOnePassIsInstalled()) {
 		UIWebElementActionHandler handler = ^(DOMNode *node, NSURL *url, UIWebDocumentView *webDocumentView, UIWebElementActionInfo *actionInfo) {
 			if (!url) return;
 			
-			NSString *onePassURLScheme = [@"op" stringByAppendingString:[url scheme]];
-			NSURL *onePassURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@:%@", onePassURLScheme, [url resourceSpecifier]]];
-			if ([[UIApplication sharedApplication] canOpenURL:onePassURL])
-				[[UIApplication sharedApplication] openURL:onePassURL];
+			NSURL *onePassURL = PIOnePassFormattedURL(url);
+			if ([UIApp canOpenURL:onePassURL])
+				[UIApp openURL:onePassURL];
 		};
-		
 		
 		UIWebElementAction *passAction = [[[UIWebElementAction alloc] initWithTitle:STR_OPEN_IN_1P
 																	 actionHandler:handler
@@ -103,6 +54,19 @@ CHOptimizedMethod2(self, void, UIWebDocumentView, _createSheetWithElementActions
 	CHSuper2(UIWebDocumentView, _createSheetWithElementActions, actions, showLinkTitle, showTitle);
 }
 
+CHOptimizedClassMethod0(self, NSArray *, UIActivityViewController, _builtinActivities)
+{
+	static PIOpenInPasswordActivity *onePassActivity;
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		onePassActivity = [PIOpenInPasswordActivity new];
+	});
+	
+	NSArray *activities = CHSuper0(UIActivityViewController, _builtinActivities);
+	
+	return [activities arrayByAddingObject:onePassActivity];
+}
+
 static void UpdatePassItSettings(void)
 {
 	static NSString *const PassItEnabledKey = @"enabled";
@@ -114,10 +78,13 @@ static void UpdatePassItSettings(void)
 CHConstructor
 {
 	@autoreleasepool {
-		CHLoadLateClass(UIWebDocumentView);
+		CHLoadClass(UIActivityViewController);
+		CHLoadClass(UIWebDocumentView);
 		CHLoadLateClass(DOMHTMLAnchorElement);
 		
 		CHHook2(UIWebDocumentView, _createSheetWithElementActions, showLinkTitle);
+		
+		CHHook0(UIActivityViewController, _builtinActivities);
 		
 		int notifyToken;
 		notify_register_dispatch(PassItSettingChangedNotification, &notifyToken, dispatch_get_main_queue(), ^(int token) {

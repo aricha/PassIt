@@ -2,6 +2,16 @@
 // Prefix header for all source files of the 'PassIt' target in the 'PassIt' project
 //
 
+#ifdef DEBUG
+	#define CHDebug
+#endif
+#define CHAppName "PassIt"
+
 #ifdef __OBJC__
 	#import <Foundation/Foundation.h>
+	#import <UIKit/UIKit.h>
+	#import "CaptainHook/CaptainHook.h"
+
+	#import "PassItHelpers.h"
+	#import "PrivateHeaders.h"
 #endif

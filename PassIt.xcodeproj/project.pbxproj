@@ -11,6 +11,11 @@
 		0DC08DEB16E3F0010051AE7C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC08DEA16E3F0010051AE7C /* UIKit.framework */; };
 		0DC08DF416E407800051AE7C /* PassIt.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC08DF316E407800051AE7C /* PassIt.m */; };
 		0DC08E0016E40CC20051AE7C /* Localizable.strings in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0DC08DFD16E40AA20051AE7C /* Localizable.strings */; };
+		0DC08E0C16E420D30051AE7C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC08E0B16E420D30051AE7C /* MobileCoreServices.framework */; };
+		0DC08E0F16E423B70051AE7C /* PassItHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DC08E0D16E423B60051AE7C /* PassItHelpers.h */; };
+		0DC08E1016E423B70051AE7C /* PassItHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC08E0E16E423B70051AE7C /* PassItHelpers.m */; };
+		0DC08E1416E424E30051AE7C /* PIOpenInPasswordActivity.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DC08E1216E424E20051AE7C /* PIOpenInPasswordActivity.h */; };
+		0DC08E1516E424E30051AE7C /* PIOpenInPasswordActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC08E1316E424E20051AE7C /* PIOpenInPasswordActivity.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +52,12 @@
 		0DC08E0816E40E7F0051AE7C /* he */ = {isa = PBXFileReference; lastKnownFileType = file; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0DC08E0916E40E880051AE7C /* pt */ = {isa = PBXFileReference; lastKnownFileType = file; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0DC08E0A16E40F300051AE7C /* it */ = {isa = PBXFileReference; lastKnownFileType = file; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0DC08E0B16E420D30051AE7C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		0DC08E0D16E423B60051AE7C /* PassItHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassItHelpers.h; sourceTree = "<group>"; };
+		0DC08E0E16E423B70051AE7C /* PassItHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassItHelpers.m; sourceTree = "<group>"; };
+		0DC08E1116E4244C0051AE7C /* PrivateHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrivateHeaders.h; sourceTree = "<group>"; };
+		0DC08E1216E424E20051AE7C /* PIOpenInPasswordActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIOpenInPasswordActivity.h; sourceTree = "<group>"; };
+		0DC08E1316E424E20051AE7C /* PIOpenInPasswordActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIOpenInPasswordActivity.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DC08E0C16E420D30051AE7C /* MobileCoreServices.framework in Frameworks */,
 				0DC08DEB16E3F0010051AE7C /* UIKit.framework in Frameworks */,
 				0DC08DD116E3E1510051AE7C /* Foundation.framework in Frameworks */,
 			);
@@ -65,6 +77,7 @@
 		0DC08DC316E3E1510051AE7C = {
 			isa = PBXGroup;
 			children = (
+				0DC08E0B16E420D30051AE7C /* MobileCoreServices.framework */,
 				0DC08DD216E3E1510051AE7C /* PassIt */,
 				0DC08DCF16E3E1510051AE7C /* Frameworks */,
 				0DC08DCE16E3E1510051AE7C /* Products */,
@@ -91,6 +104,11 @@
 		0DC08DD216E3E1510051AE7C /* PassIt */ = {
 			isa = PBXGroup;
 			children = (
+				0DC08E1216E424E20051AE7C /* PIOpenInPasswordActivity.h */,
+				0DC08E1316E424E20051AE7C /* PIOpenInPasswordActivity.m */,
+				0DC08E1116E4244C0051AE7C /* PrivateHeaders.h */,
+				0DC08E0D16E423B60051AE7C /* PassItHelpers.h */,
+				0DC08E0E16E423B70051AE7C /* PassItHelpers.m */,
 				0DC08DF316E407800051AE7C /* PassIt.m */,
 				0DC08DD316E3E1510051AE7C /* Package */,
 				0DC08DD716E3E1510051AE7C /* Supporting Files */,
@@ -174,6 +192,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DC08E0F16E423B70051AE7C /* PassItHelpers.h in Headers */,
+				0DC08E1416E424E30051AE7C /* PIOpenInPasswordActivity.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +290,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DC08DF416E407800051AE7C /* PassIt.m in Sources */,
+				0DC08E1016E423B70051AE7C /* PassItHelpers.m in Sources */,
+				0DC08E1516E424E30051AE7C /* PIOpenInPasswordActivity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
