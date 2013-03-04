@@ -1,7 +1,7 @@
 Package: com.arichardson.PassIt
 Name: PassIt
 Version: 1.0
-Description: Open links in 1Password with a tap-and-hold.
+Description: Easily open links in 1Password!
 Section: Tweaks
 Depends: firmware (>= 6.0), mobilesubstrate
 Conflicts: 
