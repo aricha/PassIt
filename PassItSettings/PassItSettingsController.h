@@ -11,6 +11,8 @@
 #import <Preferences/Preferences.h>
 #import <MessageUI/MessageUI.h>
 
-@interface PassItSettingsController : PSListController <MFMailComposeViewControllerDelegate>
+@interface PassItSettingsController : PSListController <MFMailComposeViewControllerDelegate, UIAlertViewDelegate>
+
+@property (nonatomic, retain) UIAlertView *notInstalledAlertView;
 
 @end

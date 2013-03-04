@@ -38,6 +38,10 @@ typedef NS_ENUM(NSInteger, UIWebElementActionType) {
 - (id)initWithTitle:(NSString *)title actionHandler:(UIWebElementActionHandler)handler type:(UIWebElementActionType)type;
 @end
 
+@interface NSURL (UIKitAdditions)
+- (NSURL *)itmsURL;
+@end
+
 @interface UIApplication ()
 - (NSString *)displayIDForURLScheme:(NSString *)urlScheme isPublic:(BOOL)public;
 @end

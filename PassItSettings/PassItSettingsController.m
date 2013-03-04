@@ -51,6 +51,47 @@ static NSString *const PIEmailAddress = @"contact@andrewr.me";
 	return _specifiers;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	
+	if (!PIOnePassIsInstalled()) {
+		UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"1Password Not Installed"
+														 message:@"1Password is required to be installed in order for PassIt to work."
+														delegate:self
+											   cancelButtonTitle:@"OK"
+											   otherButtonTitles:@"App Store", nil] autorelease];
+		self.notInstalledAlertView = alert;
+		[alert show];
+	}
+}
+
+- (void)dealloc
+{
+	[_notInstalledAlertView dismissWithClickedButtonIndex:_notInstalledAlertView.cancelButtonIndex animated:NO];
+	[_notInstalledAlertView release];
+	
+	[super dealloc];
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)index
+{
+	if (alertView == self.notInstalledAlertView && index != alertView.cancelButtonIndex) {
+		NSURL *onePassURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/app/1password/id568903335?mt=8"] ];
+		if ([onePassURL respondsToSelector:@selector(itmsURL)]) {
+			NSURL *formattedURL = [onePassURL itmsURL];
+			onePassURL = (formattedURL ?: onePassURL);
+		}
+		[UIApp openURL:onePassURL];
+	}
+	else
+		[super alertView:alertView clickedButtonAtIndex:index];
+	
+	if (alertView == self.notInstalledAlertView) self.notInstalledAlertView = nil;
+}
+
 #pragma mark - MFMailComposeViewControllerDelegate
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
