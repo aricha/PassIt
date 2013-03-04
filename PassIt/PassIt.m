@@ -64,7 +64,7 @@ CHOptimizedClassMethod0(self, NSArray *, UIActivityViewController, _builtinActiv
 	
 	NSArray *activities = CHSuper0(UIActivityViewController, _builtinActivities);
 	
-	return [activities arrayByAddingObject:onePassActivity];
+	return (PassItEnabled ? [activities arrayByAddingObject:onePassActivity] : activities);
 }
 
 static void UpdatePassItSettings(void)
