@@ -16,7 +16,32 @@
 		0DC08E1016E423B70051AE7C /* PassItHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC08E0E16E423B70051AE7C /* PassItHelpers.m */; };
 		0DC08E1416E424E30051AE7C /* PIOpenInPasswordActivity.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DC08E1216E424E20051AE7C /* PIOpenInPasswordActivity.h */; };
 		0DC08E1516E424E30051AE7C /* PIOpenInPasswordActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC08E1316E424E20051AE7C /* PIOpenInPasswordActivity.m */; };
+		0DC08E1C16E431400051AE7C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC08DD016E3E1510051AE7C /* Foundation.framework */; };
+		0DC08E1D16E431400051AE7C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC08DEA16E3F0010051AE7C /* UIKit.framework */; };
+		0DC08E2A16E431400051AE7C /* PassItSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC08E2916E431400051AE7C /* PassItSettingsController.m */; };
+		0DC08E4C16E4387E0051AE7C /* Preferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC08E4B16E4387E0051AE7C /* Preferences.framework */; };
+		0DC08E4D16E4391B0051AE7C /* PassItSettings.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0DC08E1B16E431400051AE7C /* PassItSettings.bundle */; };
+		0DC08E5616E439AD0051AE7C /* MailIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DC08E4F16E439AD0051AE7C /* MailIcon.png */; };
+		0DC08E5716E439AD0051AE7C /* MailIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DC08E5016E439AD0051AE7C /* MailIcon@2x.png */; };
+		0DC08E5816E439AD0051AE7C /* PassItIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DC08E5116E439AD0051AE7C /* PassItIcon.png */; };
+		0DC08E5916E439AD0051AE7C /* PassItIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DC08E5216E439AD0051AE7C /* PassItIcon@2x.png */; };
+		0DC08E5A16E439AD0051AE7C /* PassItSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0DC08E5316E439AD0051AE7C /* PassItSettings.plist */; };
+		0DC08E5B16E439AD0051AE7C /* TwitterIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DC08E5416E439AD0051AE7C /* TwitterIcon.png */; };
+		0DC08E5C16E439AD0051AE7C /* TwitterIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DC08E5516E439AD0051AE7C /* TwitterIcon@2x.png */; };
+		0DC08E5D16E43A840051AE7C /* PassItHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DC08E0D16E423B60051AE7C /* PassItHelpers.h */; };
+		0DC08E5E16E43A840051AE7C /* PassItHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC08E0E16E423B70051AE7C /* PassItHelpers.m */; };
+		0DC08E6016E43E630051AE7C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC08E5F16E43E630051AE7C /* MessageUI.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0DC08E4516E4348D0051AE7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0DC08DC416E3E1510051AE7C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0DC08E1A16E431400051AE7C;
+			remoteInfo = PassItSettings;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		0DC08DFF16E40C890051AE7C /* CopyFiles */ = {
@@ -29,15 +54,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0DC08E4A16E437C10051AE7C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "${SRCROOT}/${TARGET_NAME}/Package/Library/PreferenceBundles/";
+			dstSubfolderSpec = 0;
+			files = (
+				0DC08E4D16E4391B0051AE7C /* PassItSettings.bundle in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0DC08DCD16E3E1510051AE7C /* PassIt.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = PassIt.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DC08DD016E3E1510051AE7C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0DC08DD616E3E1510051AE7C /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
-		0DC08DDC16E3E1510051AE7C /* PassIt.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = PassIt.plist; path = Package/Library/PreferenceLoader/Preferences/PassIt.plist; sourceTree = "<group>"; };
-		0DC08DDD16E3E1510051AE7C /* PassItIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PassItIcon.png; path = Package/Library/PreferenceLoader/Preferences/PassItIcon.png; sourceTree = "<group>"; };
-		0DC08DDE16E3E1510051AE7C /* PassItIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PassItIcon@2x.png"; path = "Package/Library/PreferenceLoader/Preferences/PassItIcon@2x.png"; sourceTree = "<group>"; };
 		0DC08DDF16E3E1510051AE7C /* PassIt-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PassIt-Prefix.pch"; sourceTree = "<group>"; };
 		0DC08DE416E3E1510051AE7C /* PassIt.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = PassIt.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/PassIt.plist; sourceTree = "<group>"; };
 		0DC08DEA16E3F0010051AE7C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -58,6 +90,21 @@
 		0DC08E1116E4244C0051AE7C /* PrivateHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrivateHeaders.h; sourceTree = "<group>"; };
 		0DC08E1216E424E20051AE7C /* PIOpenInPasswordActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIOpenInPasswordActivity.h; sourceTree = "<group>"; };
 		0DC08E1316E424E20051AE7C /* PIOpenInPasswordActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIOpenInPasswordActivity.m; sourceTree = "<group>"; };
+		0DC08E1B16E431400051AE7C /* PassItSettings.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PassItSettings.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DC08E2716E431400051AE7C /* PassItSettings-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PassItSettings-Info.plist"; sourceTree = "<group>"; };
+		0DC08E2816E431400051AE7C /* PassItSettingsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PassItSettingsController.h; sourceTree = "<group>"; };
+		0DC08E2916E431400051AE7C /* PassItSettingsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassItSettingsController.m; sourceTree = "<group>"; };
+		0DC08E2E16E431400051AE7C /* PassIt.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = PassIt.plist; path = Package/Library/PreferenceLoader/Preferences/PassIt.plist; sourceTree = "<group>"; };
+		0DC08E3916E431410051AE7C /* PassItSettings-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PassItSettings-Prefix.pch"; sourceTree = "<group>"; };
+		0DC08E4B16E4387E0051AE7C /* Preferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Preferences.framework; path = System/Library/PrivateFrameworks/Preferences.framework; sourceTree = SDKROOT; };
+		0DC08E4F16E439AD0051AE7C /* MailIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MailIcon.png; sourceTree = "<group>"; };
+		0DC08E5016E439AD0051AE7C /* MailIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MailIcon@2x.png"; sourceTree = "<group>"; };
+		0DC08E5116E439AD0051AE7C /* PassItIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PassItIcon.png; sourceTree = "<group>"; };
+		0DC08E5216E439AD0051AE7C /* PassItIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PassItIcon@2x.png"; sourceTree = "<group>"; };
+		0DC08E5316E439AD0051AE7C /* PassItSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PassItSettings.plist; sourceTree = "<group>"; };
+		0DC08E5416E439AD0051AE7C /* TwitterIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TwitterIcon.png; sourceTree = "<group>"; };
+		0DC08E5516E439AD0051AE7C /* TwitterIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TwitterIcon@2x.png"; sourceTree = "<group>"; };
+		0DC08E5F16E43E630051AE7C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,14 +118,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0DC08E1716E431400051AE7C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DC08E6016E43E630051AE7C /* MessageUI.framework in Frameworks */,
+				0DC08E4C16E4387E0051AE7C /* Preferences.framework in Frameworks */,
+				0DC08E1C16E431400051AE7C /* Foundation.framework in Frameworks */,
+				0DC08E1D16E431400051AE7C /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		0DC08DC316E3E1510051AE7C = {
 			isa = PBXGroup;
 			children = (
-				0DC08E0B16E420D30051AE7C /* MobileCoreServices.framework */,
 				0DC08DD216E3E1510051AE7C /* PassIt */,
+				0DC08E2016E431400051AE7C /* PassItSettings */,
 				0DC08DCF16E3E1510051AE7C /* Frameworks */,
 				0DC08DCE16E3E1510051AE7C /* Products */,
 			);
@@ -88,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				0DC08DCD16E3E1510051AE7C /* PassIt.dylib */,
+				0DC08E1B16E431400051AE7C /* PassItSettings.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,6 +154,9 @@
 		0DC08DCF16E3E1510051AE7C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0DC08E5F16E43E630051AE7C /* MessageUI.framework */,
+				0DC08E4B16E4387E0051AE7C /* Preferences.framework */,
+				0DC08E0B16E420D30051AE7C /* MobileCoreServices.framework */,
 				0DC08DEA16E3F0010051AE7C /* UIKit.framework */,
 				0DC08DD016E3E1510051AE7C /* Foundation.framework */,
 			);
@@ -145,28 +207,9 @@
 		0DC08DD916E3E1510051AE7C /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				0DC08DDA16E3E1510051AE7C /* PreferenceLoader */,
 				0DC08DE216E3E1510051AE7C /* MobileSubstrate */,
 			);
 			name = Library;
-			sourceTree = "<group>";
-		};
-		0DC08DDA16E3E1510051AE7C /* PreferenceLoader */ = {
-			isa = PBXGroup;
-			children = (
-				0DC08DDB16E3E1510051AE7C /* Preferences */,
-			);
-			name = PreferenceLoader;
-			sourceTree = "<group>";
-		};
-		0DC08DDB16E3E1510051AE7C /* Preferences */ = {
-			isa = PBXGroup;
-			children = (
-				0DC08DDC16E3E1510051AE7C /* PassIt.plist */,
-				0DC08DDD16E3E1510051AE7C /* PassItIcon.png */,
-				0DC08DDE16E3E1510051AE7C /* PassItIcon@2x.png */,
-			);
-			name = Preferences;
 			sourceTree = "<group>";
 		};
 		0DC08DE216E3E1510051AE7C /* MobileSubstrate */ = {
@@ -185,6 +228,65 @@
 			name = DynamicLibraries;
 			sourceTree = "<group>";
 		};
+		0DC08E2016E431400051AE7C /* PassItSettings */ = {
+			isa = PBXGroup;
+			children = (
+				0DC08E4F16E439AD0051AE7C /* MailIcon.png */,
+				0DC08E5016E439AD0051AE7C /* MailIcon@2x.png */,
+				0DC08E5116E439AD0051AE7C /* PassItIcon.png */,
+				0DC08E5216E439AD0051AE7C /* PassItIcon@2x.png */,
+				0DC08E5316E439AD0051AE7C /* PassItSettings.plist */,
+				0DC08E5416E439AD0051AE7C /* TwitterIcon.png */,
+				0DC08E5516E439AD0051AE7C /* TwitterIcon@2x.png */,
+				0DC08E2816E431400051AE7C /* PassItSettingsController.h */,
+				0DC08E2916E431400051AE7C /* PassItSettingsController.m */,
+				0DC08E2116E431400051AE7C /* Package */,
+				0DC08E2516E431400051AE7C /* Supporting Files */,
+			);
+			path = PassItSettings;
+			sourceTree = "<group>";
+		};
+		0DC08E2116E431400051AE7C /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				0DC08E2B16E431400051AE7C /* Library */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
+		0DC08E2516E431400051AE7C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0DC08E2716E431400051AE7C /* PassItSettings-Info.plist */,
+				0DC08E3916E431410051AE7C /* PassItSettings-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0DC08E2B16E431400051AE7C /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				0DC08E2C16E431400051AE7C /* PreferenceLoader */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		0DC08E2C16E431400051AE7C /* PreferenceLoader */ = {
+			isa = PBXGroup;
+			children = (
+				0DC08E2D16E431400051AE7C /* Preferences */,
+			);
+			name = PreferenceLoader;
+			sourceTree = "<group>";
+		};
+		0DC08E2D16E431400051AE7C /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				0DC08E2E16E431400051AE7C /* PassIt.plist */,
+			);
+			name = Preferences;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -194,6 +296,14 @@
 			files = (
 				0DC08E0F16E423B70051AE7C /* PassItHelpers.h in Headers */,
 				0DC08E1416E424E30051AE7C /* PIOpenInPasswordActivity.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0DC08E1816E431400051AE7C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DC08E5D16E43A840051AE7C /* PassItHelpers.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,16 +319,37 @@
 				0DC08DC916E3E1510051AE7C /* Frameworks */,
 				0DC08DCA16E3E1510051AE7C /* Headers */,
 				0DC08DFF16E40C890051AE7C /* CopyFiles */,
+				0DC08E4A16E437C10051AE7C /* CopyFiles */,
+				0DC08E4916E4354F0051AE7C /* ShellScript */,
 				0DC08DCB16E3E1510051AE7C /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0DC08E4616E4348D0051AE7C /* PBXTargetDependency */,
 			);
 			name = PassIt;
 			productName = PassIt;
 			productReference = 0DC08DCD16E3E1510051AE7C /* PassIt.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
+		};
+		0DC08E1A16E431400051AE7C /* PassItSettings */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0DC08E3A16E431410051AE7C /* Build configuration list for PBXNativeTarget "PassItSettings" */;
+			buildPhases = (
+				0DC08E1616E431400051AE7C /* Sources */,
+				0DC08E1716E431400051AE7C /* Frameworks */,
+				0DC08E1816E431400051AE7C /* Headers */,
+				0DC08E4E16E439510051AE7C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PassItSettings;
+			productName = PassItSettings;
+			productReference = 0DC08E1B16E431400051AE7C /* PassItSettings.bundle */;
+			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -251,9 +382,27 @@
 			projectRoot = "";
 			targets = (
 				0DC08DCC16E3E1510051AE7C /* PassIt */,
+				0DC08E1A16E431400051AE7C /* PassItSettings */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0DC08E4E16E439510051AE7C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DC08E5616E439AD0051AE7C /* MailIcon.png in Resources */,
+				0DC08E5716E439AD0051AE7C /* MailIcon@2x.png in Resources */,
+				0DC08E5816E439AD0051AE7C /* PassItIcon.png in Resources */,
+				0DC08E5916E439AD0051AE7C /* PassItIcon@2x.png in Resources */,
+				0DC08E5A16E439AD0051AE7C /* PassItSettings.plist in Resources */,
+				0DC08E5B16E439AD0051AE7C /* TwitterIcon.png in Resources */,
+				0DC08E5C16E439AD0051AE7C /* TwitterIcon@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		0DC08DCB16E3E1510051AE7C /* ShellScript */ = {
@@ -280,7 +429,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd ${SRCROOT}/${TARGET_NAME}\npwd\nfind . -name \\*.mm -o -name \\*.m -o -name \\*.h | xargs genstrings -o en.lproj";
+			shellScript = "cd ${SRCROOT}/${TARGET_NAME}\nfind . -name \\*.mm -o -name \\*.m -o -name \\*.h | xargs genstrings -o en.lproj";
+		};
+		0DC08E4916E4354F0051AE7C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp -r ${SRCROOT}/${TARGET_NAME}Settings/Package/* ${SRCROOT}/${TARGET_NAME}/Package";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -295,7 +457,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0DC08E1616E431400051AE7C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DC08E2A16E431400051AE7C /* PassItSettingsController.m in Sources */,
+				0DC08E5E16E43A840051AE7C /* PassItHelpers.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0DC08E4616E4348D0051AE7C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0DC08E1A16E431400051AE7C /* PassItSettings */;
+			targetProxy = 0DC08E4516E4348D0051AE7C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0DC08DFD16E40AA20051AE7C /* Localizable.strings */ = {
@@ -502,6 +681,102 @@
 			};
 			name = "Release-iPad";
 		};
+		0DC08E3B16E431410051AE7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PassItSettings/PassItSettings-Prefix.pch";
+				INFOPLIST_FILE = "PassItSettings/PassItSettings-Info.plist";
+				INSTALL_PATH = /Library/PreferenceBundles;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Debug;
+		};
+		0DC08E3C16E431410051AE7C /* Debug-iPad */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PassItSettings/PassItSettings-Prefix.pch";
+				INFOPLIST_FILE = "PassItSettings/PassItSettings-Info.plist";
+				INSTALL_PATH = /Library/PreferenceBundles;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = "Debug-iPad";
+		};
+		0DC08E3D16E431410051AE7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PassItSettings/PassItSettings-Prefix.pch";
+				INFOPLIST_FILE = "PassItSettings/PassItSettings-Info.plist";
+				INSTALL_PATH = /Library/PreferenceBundles;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Release;
+		};
+		0DC08E3E16E431410051AE7C /* Release-iPad */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PassItSettings/PassItSettings-Prefix.pch";
+				INFOPLIST_FILE = "PassItSettings/PassItSettings-Info.plist";
+				INSTALL_PATH = /Library/PreferenceBundles;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = "Release-iPad";
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -523,6 +798,16 @@
 				0DC08DED16E4066F0051AE7C /* Debug-iPad */,
 				0DC08DE916E3E1510051AE7C /* Release */,
 				0DC08DEF16E406770051AE7C /* Release-iPad */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0DC08E3A16E431410051AE7C /* Build configuration list for PBXNativeTarget "PassItSettings" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0DC08E3B16E431410051AE7C /* Debug */,
+				0DC08E3C16E431410051AE7C /* Debug-iPad */,
+				0DC08E3D16E431410051AE7C /* Release */,
+				0DC08E3E16E431410051AE7C /* Release-iPad */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

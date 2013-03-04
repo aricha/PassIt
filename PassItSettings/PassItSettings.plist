@@ -2,15 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>entry</key>
-	<dict>
-		<key>cell</key>
-		<string>PSLinkCell</string>
-		<key>icon</key>
-		<string>PassItIcon.png</string>
-		<key>label</key>
-		<string>PassIt</string>
-	</dict>
+	<key>title</key>
+	<string>PassIt</string>
 	<key>items</key>
 	<array>
 		<dict>
@@ -38,11 +31,39 @@
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
+			<key>isStaticText</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Contact the Developer</string>
+			<key>action</key>
+			<string>composeMail:</string>
+			<key>buttonAction</key>
+			<string>composeMail:</string>
+			<key>icon</key>
+			<string>MailIcon.png</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>@nosdrew</string>
+			<key>action</key>
+			<string>openTwitterPage:</string>
+			<key>buttonAction</key>
+			<string>openTwitterPage:</string>
+			<key>icon</key>
+			<string>TwitterIcon.png</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
 			<key>footerText</key>
 			<string>© 2013 Andrew Richardson</string>
 		</dict>
 	</array>
-	<key>title</key>
-	<string>PassIt</string>
 </dict>
 </plist>

@@ -1,0 +1,11 @@
+//
+// Prefix header for all source files of the 'PassItSettings' target in the 'PassItSettings' project
+//
+
+#ifdef __OBJC__
+	#import <Foundation/Foundation.h>
+	#import <UIKit/UIKit.h>
+
+	#import "PrivateHeaders.h"
+	#import "PassItHelpers.h"
+#endif

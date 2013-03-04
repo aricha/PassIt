@@ -7,6 +7,7 @@
 //
 
 #import "PassItHelpers.h"
+#import "PrivateHeaders.h"
 
 NSString *const PassItBundleID = @"com.arichardson.PassIt";
 const char *PassItSettingChangedNotification = "com.arichardson.PassIt.settingsChanged";

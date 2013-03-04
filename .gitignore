@@ -5,3 +5,5 @@ LatestBuild
 # Ignore strings files copied to bundle, but not in root directory
 *.strings
 !/PassIt/*.lproj/*.strings
+PassIt/Package/Library/PreferenceBundles
+PassIt/Package/Library/PreferenceLoader
