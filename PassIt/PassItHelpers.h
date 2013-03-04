@@ -18,5 +18,6 @@ extern NSString *const PIOnePassHTTPUrlScheme;
 
 // helper functions
 NSBundle *PIBundle(void);
+NSBundle *PISettingsBundle(void);
 NSURL *PIOnePassFormattedURL(NSURL *url);
 BOOL PIOnePassIsInstalled(void);

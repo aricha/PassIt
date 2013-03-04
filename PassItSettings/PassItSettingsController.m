@@ -56,11 +56,11 @@ static NSString *const PIEmailAddress = @"contact@andrewr.me";
 	[super viewWillAppear:animated];
 	
 	if (!PIOnePassIsInstalled()) {
-		UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"1Password Not Installed"
-														 message:@"1Password is required to be installed in order for PassIt to work."
+		UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:STR_1P_NOT_INSTALLED_TITLE
+														 message:STR_1P_NOT_INSTALLED_MSG
 														delegate:self
-											   cancelButtonTitle:@"OK"
-											   otherButtonTitles:@"App Store", nil] autorelease];
+											   cancelButtonTitle:STR_OK
+											   otherButtonTitles:STR_APP_STORE, nil] autorelease];
 		self.notInstalledAlertView = alert;
 		[alert show];
 	}

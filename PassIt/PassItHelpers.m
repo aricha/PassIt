@@ -23,6 +23,16 @@ NSBundle *PIBundle(void)
 	return PIBundle;
 }
 
+NSBundle *PISettingsBundle(void)
+{
+	static NSBundle *PISettingsBundle;
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		PISettingsBundle = [NSBundle bundleWithPath:@"/Library/PreferenceBundles/PassItSettings.bundle"];
+	});
+	return PISettingsBundle;
+}
+
 NSURL *PIOnePassFormattedURL(NSURL *url)
 {
 	NSString *onePassURLScheme = [@"op" stringByAppendingString:[url scheme]];

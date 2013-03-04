@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D42BE8916E453A200261672 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D42BE8B16E453A200261672 /* Localizable.strings */; };
 		0DC08DD116E3E1510051AE7C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC08DD016E3E1510051AE7C /* Foundation.framework */; };
 		0DC08DEB16E3F0010051AE7C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC08DEA16E3F0010051AE7C /* UIKit.framework */; };
 		0DC08DF416E407800051AE7C /* PassIt.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC08DF316E407800051AE7C /* PassIt.m */; };
@@ -67,6 +68,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0D42BE8A16E453A200261672 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0D42BE8D16E4569200261672 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0D42BE8E16E4569300261672 /* es */ = {isa = PBXFileReference; lastKnownFileType = file; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0D42BE8F16E4569300261672 /* de */ = {isa = PBXFileReference; lastKnownFileType = file; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0D42BE9016E4569400261672 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		0D42BE9116E4569400261672 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		0D42BE9216E4569500261672 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0D42BE9316E4569600261672 /* he */ = {isa = PBXFileReference; lastKnownFileType = file; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0D42BE9416E4569600261672 /* pt */ = {isa = PBXFileReference; lastKnownFileType = file; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0D42BE9516E4569700261672 /* it */ = {isa = PBXFileReference; lastKnownFileType = file; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0DC08DCD16E3E1510051AE7C /* PassIt.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = PassIt.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DC08DD016E3E1510051AE7C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0DC08DD616E3E1510051AE7C /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
@@ -74,16 +85,16 @@
 		0DC08DE416E3E1510051AE7C /* PassIt.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = PassIt.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/PassIt.plist; sourceTree = "<group>"; };
 		0DC08DEA16E3F0010051AE7C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0DC08DF316E407800051AE7C /* PassIt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassIt.m; sourceTree = "<group>"; };
-		0DC08DFC16E40AA20051AE7C /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		0DC08E0116E40DCB0051AE7C /* fr */ = {isa = PBXFileReference; lastKnownFileType = file; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		0DC08E0216E40DCF0051AE7C /* es */ = {isa = PBXFileReference; lastKnownFileType = file; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
-		0DC08E0316E40DD30051AE7C /* de */ = {isa = PBXFileReference; lastKnownFileType = file; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		0DC08E0416E40DD80051AE7C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		0DC08E0516E40DDD0051AE7C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		0DC08E0616E40DE60051AE7C /* ru */ = {isa = PBXFileReference; lastKnownFileType = file; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		0DC08E0816E40E7F0051AE7C /* he */ = {isa = PBXFileReference; lastKnownFileType = file; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
-		0DC08E0916E40E880051AE7C /* pt */ = {isa = PBXFileReference; lastKnownFileType = file; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
-		0DC08E0A16E40F300051AE7C /* it */ = {isa = PBXFileReference; lastKnownFileType = file; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0DC08DFC16E40AA20051AE7C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0DC08E0116E40DCB0051AE7C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0DC08E0216E40DCF0051AE7C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0DC08E0316E40DD30051AE7C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0DC08E0416E40DD80051AE7C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		0DC08E0516E40DDD0051AE7C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		0DC08E0616E40DE60051AE7C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0DC08E0816E40E7F0051AE7C /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0DC08E0916E40E880051AE7C /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0DC08E0A16E40F300051AE7C /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0DC08E0B16E420D30051AE7C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		0DC08E0D16E423B60051AE7C /* PassItHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassItHelpers.h; sourceTree = "<group>"; };
 		0DC08E0E16E423B70051AE7C /* PassItHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassItHelpers.m; sourceTree = "<group>"; };
@@ -240,6 +251,7 @@
 				0DC08E5516E439AD0051AE7C /* TwitterIcon@2x.png */,
 				0DC08E2816E431400051AE7C /* PassItSettingsController.h */,
 				0DC08E2916E431400051AE7C /* PassItSettingsController.m */,
+				0D42BE8B16E453A200261672 /* Localizable.strings */,
 				0DC08E2116E431400051AE7C /* Package */,
 				0DC08E2516E431400051AE7C /* Supporting Files */,
 			);
@@ -340,6 +352,7 @@
 				0DC08E1616E431400051AE7C /* Sources */,
 				0DC08E1716E431400051AE7C /* Frameworks */,
 				0DC08E1816E431400051AE7C /* Headers */,
+				0D42BE8C16E4564E00261672 /* ShellScript */,
 				0DC08E4E16E439510051AE7C /* Resources */,
 			);
 			buildRules = (
@@ -399,12 +412,26 @@
 				0DC08E5A16E439AD0051AE7C /* PassItSettings.plist in Resources */,
 				0DC08E5B16E439AD0051AE7C /* TwitterIcon.png in Resources */,
 				0DC08E5C16E439AD0051AE7C /* TwitterIcon@2x.png in Resources */,
+				0D42BE8916E453A200261672 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0D42BE8C16E4564E00261672 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd ${SRCROOT}/${TARGET_NAME}\nfind . -name \\*.mm -o -name \\*.m -o -name \\*.h | xargs genstrings -o en.lproj";
+		};
 		0DC08DCB16E3E1510051AE7C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -477,6 +504,23 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		0D42BE8B16E453A200261672 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0D42BE8A16E453A200261672 /* en */,
+				0D42BE8D16E4569200261672 /* fr */,
+				0D42BE8E16E4569300261672 /* es */,
+				0D42BE8F16E4569300261672 /* de */,
+				0D42BE9016E4569400261672 /* zh-Hans */,
+				0D42BE9116E4569400261672 /* zh-Hant */,
+				0D42BE9216E4569500261672 /* ru */,
+				0D42BE9316E4569600261672 /* he */,
+				0D42BE9416E4569600261672 /* pt */,
+				0D42BE9516E4569700261672 /* it */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		0DC08DFD16E40AA20051AE7C /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -800,6 +844,7 @@
 				0DC08DEF16E406770051AE7C /* Release-iPad */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0DC08E3A16E431410051AE7C /* Build configuration list for PBXNativeTarget "PassItSettings" */ = {
 			isa = XCConfigurationList;
@@ -810,6 +855,7 @@
 				0DC08E3E16E431410051AE7C /* Release-iPad */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
