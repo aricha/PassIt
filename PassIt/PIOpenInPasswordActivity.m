@@ -8,10 +8,16 @@
 
 #import "PIOpenInPasswordActivity.h"
 
+static BOOL PIURLIsValid(NSURL *url)
+{
+	NSString *scheme = [url scheme];
+	return [scheme isEqualToString:@"http"] || [scheme isEqualToString:@"https"];
+}
+
 static NSURL *PIFindURLFromActivityItems(NSArray *activityItems)
 {
 	NSUInteger idx = [activityItems indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
-		return [obj isKindOfClass:[NSURL class]];
+		return [obj isKindOfClass:[NSURL class]] && PIURLIsValid((NSURL *)obj);
 	}];
 	return (idx != NSNotFound ? activityItems[idx] : nil);
 }
@@ -70,8 +76,7 @@ static NSURL *PIFindURLFromActivityItems(NSArray *activityItems)
 
 - (void)performActivity
 {
-	if ([UIApp canOpenURL:_url])
-		[UIApp openURL:_url];
+	[UIApp openURL:_url];
 }
 
 @end
