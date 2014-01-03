@@ -8,10 +8,10 @@
 
 #import "PassItHelpers.h"
 #import "PrivateHeaders.h"
+#import "PassItSettings.h"
 
 NSString *const PassItBundleID = @"com.arichardson.PassIt";
 const char *PassItSettingChangedNotification = "com.arichardson.PassIt.settingsChanged";
-NSString *const PIOnePassHTTPUrlScheme = @"ophttp";
 
 NSBundle *PIBundle(void)
 {
@@ -33,14 +33,14 @@ NSBundle *PISettingsBundle(void)
 	return PISettingsBundle;
 }
 
-NSURL *PIOnePassFormattedURL(NSURL *url)
+inline BOOL PICanOpenURLWithScheme(NSString *scheme)
 {
-	NSString *onePassURLScheme = [@"op" stringByAppendingString:[url scheme]];
-	NSURL *onePassURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@:%@", onePassURLScheme, [url resourceSpecifier]]];
-	return onePassURL;
+    return [UIApp canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://", scheme]]];
 }
 
-BOOL PIOnePassIsInstalled(void)
+NSURL *PIOnePassFormattedURL(NSURL *url)
 {
-	return [UIApp canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://", PIOnePassHTTPUrlScheme]]];
+	NSString *onePassURLScheme = [[[PassItSettings sharedInstance] URLSchemePrefix] stringByAppendingString:[url scheme]];
+	NSURL *onePassURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@:%@", onePassURLScheme, [url resourceSpecifier]]];
+	return onePassURL;
 }

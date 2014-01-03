@@ -1,9 +1,9 @@
 Package: com.arichardson.PassIt
 Name: PassIt
-Version: 1.0
+Version: 1.1
 Description: Easily open links in 1Password!
 Section: Tweaks
-Depends: firmware (>= 6.0), mobilesubstrate
+Depends: firmware (>= 6.0), mobilesubstrate, preferenceloader
 Conflicts: 
 Replaces: 
 Priority: optional

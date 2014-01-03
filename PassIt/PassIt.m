@@ -6,10 +6,8 @@
 //  Copyright (c) 2013 Andrew Richardson. All rights reserved.
 //
 
-#import <notify.h>
 #import "PIOpenInPasswordActivity.h"
-
-static BOOL PassItEnabled = YES;
+#import "PassItSettings.h"
 
 CHDeclareClass(UIActivityViewController)
 CHDeclareClass(UIWebDocumentView)
@@ -20,7 +18,7 @@ CHOptimizedMethod2(self, void, UIWebDocumentView, _createSheetWithElementActions
 	DOMNode *node = [self interactionElement];
 	BOOL isAnchor = node && [(id)node isKindOfClass:CHClass(DOMHTMLAnchorElement)];
 	
-	if (isAnchor && PassItEnabled && PIOnePassIsInstalled()) {
+	if (isAnchor && [[PassItSettings sharedInstance] isEnabled]) {
 		UIWebElementActionHandler handler = ^(DOMNode *node, NSURL *url, UIWebDocumentView *webDocumentView, UIWebElementActionInfo *actionInfo) {
 			if (!url) return;
 			
@@ -64,15 +62,7 @@ CHOptimizedClassMethod0(self, NSArray *, UIActivityViewController, _builtinActiv
 	
 	NSArray *activities = CHSuper0(UIActivityViewController, _builtinActivities);
 	
-	return (PassItEnabled ? [activities arrayByAddingObject:onePassActivity] : activities);
-}
-
-static void UpdatePassItSettings(void)
-{
-	static NSString *const PassItEnabledKey = @"enabled";
-	NSDictionary *userDefaults = [[NSUserDefaults standardUserDefaults] persistentDomainForName:PassItBundleID];
-	NSNumber *enabled = [userDefaults objectForKey:PassItEnabledKey];
-	PassItEnabled = (!enabled || [enabled boolValue]); // defaults to YES
+	return ([[PassItSettings sharedInstance] isEnabled] ? [activities arrayByAddingObject:onePassActivity] : activities);
 }
 
 CHConstructor
@@ -83,17 +73,10 @@ CHConstructor
 		CHLoadLateClass(DOMHTMLAnchorElement);
 		
 		CHHook2(UIWebDocumentView, _createSheetWithElementActions, showLinkTitle);
-		
 		CHHook0(UIActivityViewController, _builtinActivities);
 		
-		int notifyToken;
-		notify_register_dispatch(PassItSettingChangedNotification, &notifyToken, dispatch_get_main_queue(), ^(int token) {
-			UpdatePassItSettings();
-		});
-		
-		// defer loading of settings because hey why not
 		dispatch_async(dispatch_get_main_queue(), ^{
-			UpdatePassItSettings();
+			[[PassItSettings sharedInstance] registerForNotifications];
 		});
 	}
 }

@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <Preferences/Preferences.h>
 #import <MessageUI/MessageUI.h>
 
 #define STR_CONTACT_DEVELOPER NSLocalizedStringWithDefaultValue(@"Contact the Developer", nil, PISettingsBundle(), @"Contact the Developer", @"Label for emailing developer")

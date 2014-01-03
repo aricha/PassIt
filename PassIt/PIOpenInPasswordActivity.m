@@ -7,6 +7,7 @@
 //
 
 #import "PIOpenInPasswordActivity.h"
+#import "PassItSettings.h"
 
 static BOOL PIURLIsValid(NSURL *url)
 {
@@ -31,10 +32,15 @@ static NSURL *PIFindURLFromActivityItems(NSArray *activityItems)
 
 @implementation PIOpenInPasswordActivity
 
++ (UIActivityCategory)activityCategory
+{
+    return UIActivityCategoryShare;
+}
+
 - (id)init
 {
     if (self = [super init]) {
-		NSString *appID = [UIApp displayIDForURLScheme:PIOnePassHTTPUrlScheme isPublic:YES];
+		NSString *appID = [UIApp displayIDForURLScheme:[[PassItSettings sharedInstance] HTTPURLScheme] isPublic:YES];
         _appProxy = [[LSApplicationProxy applicationProxyForIdentifier:appID] retain];
     }
     return self;
@@ -50,13 +56,13 @@ static NSURL *PIFindURLFromActivityItems(NSArray *activityItems)
 
 - (BOOL)canPerformWithActivityItems:(NSArray *)activityItems
 {
-	return (PIOnePassIsInstalled() && PIFindURLFromActivityItems(activityItems));
+	return ([[PassItSettings sharedInstance] isEnabled] && PIFindURLFromActivityItems(activityItems));
 }
 
 // don't use official activityImage method, doesn't work for app icons
 - (UIImage *)_activityImage
 {
-	return [UIImage _iconForResourceProxy:_appProxy format:2];
+	return [UIImage _iconForResourceProxy:_appProxy format:UIIconImageFormatActivity];
 }
 
 - (NSString *)activityType

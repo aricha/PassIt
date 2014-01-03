@@ -46,9 +46,14 @@ typedef NS_ENUM(NSInteger, UIWebElementActionType) {
 - (NSString *)displayIDForURLScheme:(NSString *)urlScheme isPublic:(BOOL)public;
 @end
 
+typedef NS_ENUM(NSInteger, UIIconImageFormat) {
+    UIIconImageFormatSettings = 0,
+    UIIconImageFormatActivity = 2 // probably not accurate but whatever it fits
+};
+
 @class LSResourceProxy;
 @interface UIImage ()
-+ (UIImage *)_iconForResourceProxy:(LSResourceProxy *)proxy format:(int)format;
++ (UIImage *)_iconForResourceProxy:(LSResourceProxy *)proxy format:(UIIconImageFormat)format;
 @end
 
 @interface LSResourceProxy : NSObject
@@ -56,6 +61,19 @@ typedef NS_ENUM(NSInteger, UIWebElementActionType) {
 
 @interface LSApplicationProxy : LSResourceProxy
 + (instancetype)applicationProxyForIdentifier:(NSString *)identifier;
+@property (nonatomic, readonly) BOOL isInstalled;
+@end
+
+/* Settings */
+
+@interface PSListController : UIViewController <UIAlertViewDelegate> {
+    NSMutableArray *_specifiers;
+}
+- (NSMutableArray *)loadSpecifiersFromPlistName:(NSString *)plist target:(id)target;
+@end
+
+@interface PSTableCell : UITableViewCell
++ (int)cellTypeFromString:(NSString *)string;
 @end
 
 #endif
